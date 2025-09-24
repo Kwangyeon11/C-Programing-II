@@ -1,3 +1,10 @@
+/*   파일명: ch13_01.c
+	 내  용: PA01. low byte와 high byte로 워드(2바이트) 크기의 데이터를 만드는 MAKEWORD 매크로와 
+     low word와 high word로 더블워드(4바이트) 크기의 데이터를 만드는 MAKEDWORD 매크로를 정의하고 테스트 하시오.(난이도 1)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdint.h>
 #include <stdio.h>
@@ -29,3 +36,4 @@ int main()
     print_word();
     return 0;
 }
+
