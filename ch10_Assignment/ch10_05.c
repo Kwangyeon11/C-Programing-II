@@ -1,4 +1,8 @@
-// 25. 07. 29
+/*   파일명: ch10_05.c
+	 내  용: PA02. DATE 구조체와 set_as_today, print_date 함수를 이용해서 오늘 날짜를 출력하는 프로그램을 작성하시오. (난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -37,7 +41,7 @@ void print_date()
 	DATE* p = &days;
 	set_as_today(&days.year, &days.month, &days.day);
 	
-	printf("���� ��¥�� %d/%d/%d �Դϴ�.\n", days.year, days.month, days.day);
+	printf("¿À´Ã ³¯Â¥´Â %d/%d/%d ÀÔ´Ï´Ù.\n", days.year, days.month, days.day);
 
 }
 
@@ -45,4 +49,5 @@ int main()
 {
 	print_date();
 	return 0;
+
 }
