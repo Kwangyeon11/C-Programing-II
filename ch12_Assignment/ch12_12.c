@@ -1,4 +1,9 @@
-// 25. 08. 13 
+/*   파일명: ch12_12.c
+	 내  용: PA12. 텍스트 파일에 정해진 형식으로 연락처를 저장하고 이 파일을 읽어서 CONTACT 구조체 배열을 생성하도록 프로그램을 작성하시오.
+	 추가로 새로운 연락처를 추가하고 파일에 저장하는 기능을 구현하시오.(난이도 3)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -13,13 +18,13 @@ typedef struct contact {
 void contact_txt()
 {
     char filename[24];
-	printf("����ó ���ϸ�? ");
+	printf("연락처 파일명? ");
 	fgets(filename, sizeof(filename), stdin);
 	filename[strcspn(filename, "\n")] = '\0';
 
     FILE* fp = fopen(filename, "r");
     if (!fp) {
-        printf("������ �� �� �����ϴ�.\n");
+        printf("파일을 열 수 없습니다.\n");
         exit(1);
     }
 
@@ -33,7 +38,7 @@ void contact_txt()
 
     if (count == 0) 
     {
-        printf("����ó�� �����ϴ�.\n");
+        printf("연락처가 없습니다.\n");
         fclose(fp);
         return;
     }
@@ -41,33 +46,33 @@ void contact_txt()
     CONTACT* mycon = malloc(sizeof(CONTACT) * count);
     if (!mycon) 
     {
-        printf("�޸� �Ҵ� ����\n");
+        printf("메모리 할당 실패\n");
         fclose(fp);
         exit(1);
     }
 
-    // ���� ��ġ �ǵ����� ������ �б�
+    // 파일 위치 되돌리고 데이터 읽기
     rewind(fp);
     for (int i = 0; i < count; i++) 
     {
         fscanf(fp, "%19s %19s", mycon[i].name, mycon[i].num);
     }
 
-    printf("%d���� ����ó�� �ε��߽��ϴ�.\n", count);
+    printf("%d개의 연락처를 로딩했습니다.\n", count);
 
-    // �Է� ���� ���� ����
+    // 입력 버퍼 개행 제거
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 
     while (1)
     {
-        printf("�̸�(. �Է� �� ����)? ");
+        printf("이름(. 입력 시 종료)? ");
         fgets(temp.name, sizeof(temp.name), stdin);
         temp.name[strcspn(temp.name, "\n")] = '\0';
 
         if (strcmp(temp.name, ".") == 0)
         {
-            printf("%s�� %d���� ����ó�� �����߽��ϴ�.\n", filename, count);
+            printf("%s로 %d개의 연락처를 저장했습니다.\n", filename, count);
             break;
 
         }
@@ -75,27 +80,27 @@ void contact_txt()
         int found = 0;
         for (int i = 0; i < count; i++) {
             if (strcmp(temp.name, mycon[i].name) == 0) {
-                printf("%s�� ��ȭ��ȣ %s�� ��ȭ�� �̴ϴ�....\n", mycon[i].name, mycon[i].num);
+                printf("%s의 전화번호 %s로 전화를 겁니다....\n", mycon[i].name, mycon[i].num);
                 found = 1;
                 break;
             }
         }
         if (!found) 
         {
-            printf("����ó�� ã�� �� �����ϴ�. ����ó�� ����Ͻðڽ��ϱ�(y/n)? ");
+            printf("연락처를 찾을 수 없습니다. 연락처를 등록하시겠습니까(y/n)? ");
             char choice;
 			scanf(" %c", &choice);
-            while (getchar() != '\n'); // �Է� ���� ���� ����(�߿�)
+            while (getchar() != '\n'); // 입력 버퍼 개행 제거(중요)
             if (choice == 'y' || choice == 'Y') 
             {
-                printf("��ȭ��ȣ? ");
+                printf("전화번호? ");
                 fgets(temp.num, sizeof(temp.num), stdin);
                 temp.num[strcspn(temp.num, "\n")] = '\0';
-                // ����ó �߰�
+                // 연락처 추가
                 mycon = realloc(mycon, sizeof(CONTACT) * (count + 1));
                 if (!mycon) 
                 {
-                    printf("�޸� �Ҵ� ����\n");
+                    printf("메모리 할당 실패\n");
                     exit(1);
                 }
                 strcpy(mycon[count].name, temp.name);
@@ -104,23 +109,23 @@ void contact_txt()
 				fp = fopen(filename, "a");
                 if (!fp) 
                 {
-                    printf("������ �� �� �����ϴ�.\n");
+                    printf("파일을 열 수 없습니다.\n");
                     free(mycon);
                     exit(1);
                 }
                 fprintf(fp, "%s %s\n", temp.name, temp.num);
                 fclose(fp);
-				printf("����ó�� ��ϵǾ����ϴ�.\n");
+				printf("연락처가 등록되었습니다.\n");
                 continue;
             } 
             else if (choice == 'n' || choice == 'N') 
             {
-                printf("����� ����մϴ�.\n");
+                printf("등록을 취소합니다.\n");
                 continue;
             } 
             else 
             {
-                printf("�߸��� �Է��Դϴ�.\n");
+                printf("잘못된 입력입니다.\n");
                 continue;
 			}
         }
@@ -134,3 +139,4 @@ int main()
     contact_txt();
     return 0;
 }
+
