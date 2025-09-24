@@ -1,5 +1,9 @@
-// 25. 07. 28
-
+/*   파일명: ch10_02.c
+	 내  용: PA02. LOGIN 구조체를 매개변수로 전달받아 구조체에 저장된 아이디와 
+	 패스워드 모두 소문자로 만드는 make_lower 함수와 아이디와 패스워드를 출력하는 print_login 함수를 정의하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -65,4 +69,5 @@ int main()
 {
 	print_login();
 	return 0;
+
 }
