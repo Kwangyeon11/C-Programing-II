@@ -1,3 +1,10 @@
+/*   íŒŒì¼ëª…: ch13_11.c
+	 ë‚´  ìš©: PA11. í…ìŠ¤íŠ¸ íŒŒì¼ì— "2022 1 1"ì™€ ê°™ì´ ì €ì¥ëœ ê³µíœ´ì¼ ì •ë³´ë¥¼ ì½ì–´ì„œ DATE êµ¬ì¡°ì²´ ë°°ì—´ì„ ë§Œë“¤ê³  
+	 ì…ë ¥ë°›ì€ ë‚ ì§œê°€ ê³µíœ´ì¼ì¸ì§€ ê²€ì‚¬í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.(ë‚œì´ë„ 3)
+	 ì‘ì„±ì: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.09. 24
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
@@ -13,8 +20,8 @@ typedef struct date{
 void print_date() {
 	FILE* fp = NULL;
 	
-	DATE date; // ÄÜ¼Ö¿¡¼­
-	DATE holiday; // ÆÄÀÏ¿¡¼­
+	DATE date; // ì½˜ì†”ì—ì„œ
+	DATE holiday; // íŒŒì¼ì—ì„œ
 
 	const char* MONTH_NAMES[] = {
 	"", "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -23,12 +30,12 @@ void print_date() {
 
 	fp = fopen("date.txt", "r");
 	if (fp == NULL) {
-		printf("ÆÄÀÏ ¿­±â ¿À·ù\n");
+		printf("íŒŒì¼ ì—´ê¸° ì˜¤ë¥˜\n");
 		return;
 	}
 
 	while (1) {
-		printf ("³¯Â¥(¿¬¿ùÀÏ)? ");
+		printf ("ë‚ ì§œ(ì—°ì›”ì¼)? ");
 		scanf ("%s %s %s", &date.year, &date.month, &date.day);
 		
 		if (strcmp(date.year, "0") == 0 && strcmp(date.month, "0") == 0 && strcmp(date.day, "0") == 0)
@@ -36,25 +43,25 @@ void print_date() {
 
 		while (fscanf(fp, "%s %s %s", &holiday.year, &holiday.month, &holiday.day) != NULL) {
 			if (strcmp(date.year, holiday.year) == 0 && strcmp(date.month, holiday.month) == 0 && strcmp(date.day, holiday.day) == 0) {
-				int month_num = atoi(date.month); // ¹®ÀÚ¿­ ¿ùÀ» ¼ıÀÚ ¿ù·Î º¯È¯
+				int month_num = atoi(date.month); // ë¬¸ìì—´ ì›”ì„ ìˆ«ì ì›”ë¡œ ë³€í™˜
 				
 				if (USE_USA_FORMAT == 1)
-					printf("%s %s %sÀº ", MONTH_NAMES[month_num], date.day, date.year); // ¼ıÀÚ ¿ùÀ» ÀÎµ¦½º·Î ÀÌ¿ë
+					printf("%s %s %sì€ ", MONTH_NAMES[month_num], date.day, date.year); // ìˆ«ì ì›”ì„ ì¸ë±ìŠ¤ë¡œ ì´ìš©
 				else if (USE_USA_FORMAT == 0)
-					printf("%s/%s/%sÀº ", date.year, date.month, date.day);
+					printf("%s/%s/%sì€ ", date.year, date.month, date.day);
 
-				printf("°øÈŞÀÏÀÔ´Ï´Ù.\n");
+				printf("ê³µíœ´ì¼ì…ë‹ˆë‹¤.\n");
 				break;
 			}
 			else {
-				int month_num = atoi(date.month); // ¹®ÀÚ¿­ ¿ùÀ» ¼ıÀÚ ¿ù·Î º¯È¯
+				int month_num = atoi(date.month); // ë¬¸ìì—´ ì›”ì„ ìˆ«ì ì›”ë¡œ ë³€í™˜
 
 				if (USE_USA_FORMAT == 1)
-					printf("%s %s %sÀº ", MONTH_NAMES[month_num], date.day, date.year);
+					printf("%s %s %sì€ ", MONTH_NAMES[month_num], date.day, date.year);
 				else if (USE_USA_FORMAT == 0)
-					printf("%s/%s/%sÀº ", date.year, date.month, date.day);
+					printf("%s/%s/%sì€ ", date.year, date.month, date.day);
 
-				printf("°øÈŞÀÏÀÌ ¾Æ´Õ´Ï´Ù.\n");
+				printf("ê³µíœ´ì¼ì´ ì•„ë‹™ë‹ˆë‹¤.\n");
 				break;
 			}
 		}
@@ -73,4 +80,5 @@ int main() {
 	print_date();
    
 	return 0;
+
 }
