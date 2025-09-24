@@ -1,4 +1,8 @@
-// 25. 07. 30
+/*   íŒŒì¼ëª…: ch10_11.c
+	 ë‚´  ìš©: PA11. PRODUCT êµ¬ì¡°ì²´ ë°°ì—´ì„ ì´ìš©í•´ì„œ ì œí’ˆëª…ì„ ì…ë ¥ë°›ì•„ ê²€ìƒ‰ í›„ ì£¼ë¬¸ ì²˜ë¦¬í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.(ë‚œì´ë„ 3)
+	 ì‘ì„±ì: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -20,13 +24,13 @@ void cal_product(PRODUCT* items, PRODUCT* order, int order_qty)
             if (items[i].stock >= order_qty)
             {
                 order->price = items[i].price * order_qty;
-                items[i].stock -= order_qty; // items´Â Àç°í¸¸ º¯°æµÇ°í ³ª¸ÓÁö °íÁ¤°ª
+                items[i].stock -= order_qty; // itemsëŠ” ì¬ê³ ë§Œ ë³€ê²½ë˜ê³  ë‚˜ë¨¸ì§€ ê³ ì •ê°’
                 order->stock = items[i].stock;
                 return;
             }
             else
             {
-                printf("Àç°í°¡ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç Àç°í: %d\n", items[i].stock);
+                printf("ì¬ê³ ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤. í˜„ì¬ ì¬ê³ : %d\n", items[i].stock);
                 order->price = 0;
                 order->stock = items[i].stock;
                 return;
@@ -39,15 +43,15 @@ void cal_product(PRODUCT* items, PRODUCT* order, int order_qty)
 void print_product()
 {
     PRODUCT item[5] = {
-        {"¾Æ¸Ş¸®Ä«³ë", 4000, 10},
-        {"Ä«Æä¶ó¶¼", 4500, 10},
-        {"ÇÃ·§È­ÀÌÆ®", 5000, 10}
+        {"ì•„ë©”ë¦¬ì¹´ë…¸", 4000, 10},
+        {"ì¹´í˜ë¼ë–¼", 4500, 10},
+        {"í”Œë«í™”ì´íŠ¸", 5000, 10}
     };
     PRODUCT order_item = { 0 };
 
     for (int i = 0; i < 5; i++)
     {
-        printf("ÁÖ¹®ÇÒ Á¦Ç°¸í? ");
+        printf("ì£¼ë¬¸í•  ì œí’ˆëª…? ");
         getchar(); 
         gets_s(order_item.name, sizeof(order_item.name));
 
@@ -55,12 +59,12 @@ void print_product()
         {
             for (int i = 0; item[i].name[0] != '\0'; i++)
             {
-                printf("[%s %d¿ø Àç°í:%d]\n", item[i].name, item[i].price, item[i].stock);
+                printf("[%s %dì› ì¬ê³ :%d]\n", item[i].name, item[i].price, item[i].stock);
             }
             break;
         }
 
-        printf("ÁÖ¹®ÇÒ ¼ö·®? ");
+        printf("ì£¼ë¬¸í•  ìˆ˜ëŸ‰? ");
         scanf("%d", &order_item.stock);
 
         if (order_item.stock == 0)
@@ -72,9 +76,9 @@ void print_product()
 
         if (order_item.price > 0)
         {
-            printf("°áÁ¦ ±İ¾×: %d  %s Àç°í: %d\n", order_item.price, order_item.name, order_item.stock);
+            printf("ê²°ì œ ê¸ˆì•¡: %d  %s ì¬ê³ : %d\n", order_item.price, order_item.name, order_item.stock);
         }
-		order_item.name[0] = '\0'; // order_itemÀÌ ¿µ¼öÁõ ¿ªÇÒÀ» ÇÏ¹Ç·Î, ´ÙÀ½ ÁÖ¹®À» À§ÇØ ÃÊ±âÈ­
+		order_item.name[0] = '\0'; // order_itemì´ ì˜ìˆ˜ì¦ ì—­í• ì„ í•˜ë¯€ë¡œ, ë‹¤ìŒ ì£¼ë¬¸ì„ ìœ„í•´ ì´ˆê¸°í™”
         order_item.price = 0;
 		order_item.stock = 0; 
     }
@@ -85,4 +89,5 @@ int main()
 {
     print_product();
     return 0;
+
 }
