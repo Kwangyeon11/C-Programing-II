@@ -1,10 +1,14 @@
-// 25. 08. 03
+/*   íŒŒì¼ëª…: ch11_08.c
+	 ë‚´  ìš©: PA08. fill_array í•¨ìˆ˜ì™€ ì—¬ëŸ¬ ê°€ì§€ ì½œë°± í•¨ìˆ˜ë¥¼ ì´ìš©í•´ ë°°ì—´ì— ì—¬ëŸ¬ ê°€ì§€ ë°©ë²•ìœ¼ë¡œ ê°’ì„ ì±„ìš°ê³  ì¶œë ¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
+	 ì‘ì„±ì: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
-// Äİ¹é ÇÔ¼ö Æ÷ÀÎÅÍ Çü½Ä: int func(int)
+// ì½œë°± í•¨ìˆ˜ í¬ì¸í„° í˜•ì‹: int func(int)
 void fill_arr(int arr[], int size, int (*callback)(int));
 int increment_it(int n);
 int square_it(int n);
@@ -39,27 +43,27 @@ void print_arr()
 	int arr[10];
 	int size = sizeof(arr) / sizeof(arr[0]);
 
-	printf("¹è¿­À» 0ºÎÅÍ 1¾¿ Ä¿Áö´Â °ªÀ¸·Î Ã¤¿ï ¶§:\n");
+	printf("ë°°ì—´ì„ 0ë¶€í„° 1ì”© ì»¤ì§€ëŠ” ê°’ìœ¼ë¡œ ì±„ìš¸ ë•Œ:\n");
 	for (int i = 0; i < size; i++)
 	{
-		arr[i] = i; // ÃÊ±âÈ­
+		arr[i] = i; // ì´ˆê¸°í™”
 		printf("%d ", arr[i]);
 	}
 	printf("\n");
 	
-	printf("¹è¿­À» ÇöÀç ¿ø¼Òº¸´Ù 1¸¸Å­ Å« °ªÀ¸·Î Ã¤¿ï ¶§:\n");
+	printf("ë°°ì—´ì„ í˜„ì¬ ì›ì†Œë³´ë‹¤ 1ë§Œí¼ í° ê°’ìœ¼ë¡œ ì±„ìš¸ ë•Œ:\n");
 	fill_arr(arr, size, increment_it);
 	for (int i = 0; i < size; i++)
 		printf("%d ", arr[i]);
 	printf("\n");
 
-	printf("¹è¿­À» ÇöÀç ¿ø¼ÒÀÇ Á¦°öÀ¸·Î Ã¤¿ï ¶§:\n");
+	printf("ë°°ì—´ì„ í˜„ì¬ ì›ì†Œì˜ ì œê³±ìœ¼ë¡œ ì±„ìš¸ ë•Œ:\n");
 	fill_arr(arr, size, square_it);
 	for (int i = 0; i < size; i++)
 		printf("%d ", arr[i]);
 	printf("\n");
 
-	printf("¹è¿­À» 0À¸·Î Ã¤¿ï ¶§:\n");
+	printf("ë°°ì—´ì„ 0ìœ¼ë¡œ ì±„ìš¸ ë•Œ:\n");
 	fill_arr(arr, size, zero_it);
 	for (int i = 0; i < size; i++)
 		printf("%d ", arr[i]);
@@ -70,4 +74,5 @@ int main()
 {
 	print_arr();
 	return 0;
+
 }
