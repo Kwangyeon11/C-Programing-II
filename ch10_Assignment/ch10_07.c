@@ -1,11 +1,15 @@
-// 25. 07. 29
+/*   파일명: ch10_07.c
+	 내  용: PA07. set_as_today 함수와 print_date_eng 함수를 이용해서 오늘 날짜를 영어식 표기법으로 출력하는 프로그램을 작성하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
 
-enum the_month_of_year { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }; // ���� �ǹ̸� �� �𸣰���
+enum the_month_of_year { Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec }; // ¾²´Â ÀÇ¹Ì¸¦ Àß ¸ð¸£°ÚÀ½
 
 typedef struct date {
   
@@ -41,4 +45,5 @@ int main()
 {
     print_date();
     return 0;
+
 }
