@@ -1,4 +1,8 @@
-// 25. 08. 08 (ÅØ½ºÆ® ÆÄÀÏ ÀÔÃâ·Â, fprintf, fscanf)
+/*   íŒŒì¼ëª…: ch12_05.c
+	 ë‚´  ìš©: PA05. 4ë²ˆ í”„ë¡œê·¸ë¨ì— ì•„ì´ë”” ë“±ë¡ ë° íŒŒì¼ì„ ë‹¤ì‹œ ì €ì¥í•˜ë„ë¡ êµ¬í˜„í•˜ê³ , í…ìŠ¤íŠ¸ íŒŒì¼ì˜ í˜•ì‹ì€ 4ë²ˆê³¼ ë™ì¼í•˜ê²Œ ì¶œë ¥í•œë‹¤.(ë‚œì´ë„ 3)
+	 ì‘ì„±ì: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -15,7 +19,7 @@ void print_file()
 {
     FILE* fp = NULL; 
     LOGIN file[20]; 
-	int file_count = 0; // ÇÙ½É
+	int file_count = 0; // í•µì‹¬
 
     fp = fopen("password.txt", "r");
     if (fp != NULL) 
@@ -30,7 +34,7 @@ void print_file()
     while (1)
     {
         char input_id[20], input_pw[20]; 
-        int found = 0; // Ã¼Å©
+        int found = 0; // ì²´í¬
 
         printf("ID? ");
         scanf("%s", input_id);
@@ -48,19 +52,19 @@ void print_file()
 
                 if (strcmp(input_pw, file[i].password) == 0) 
                 {
-                    printf("·Î±×ÀÎ ¼º°ø!\n");
+                    printf("ë¡œê·¸ì¸ ì„±ê³µ!\n");
                 }
                 else 
                 {
-                    printf("ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.\n");
+                    printf("ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.\n");
                 }
                 break;
             }
         }
 
-        if (!found) // ÄÚµå°¡ °£°áÇÏ°í È¿À²Àû
+        if (!found) // ì½”ë“œê°€ ê°„ê²°í•˜ê³  íš¨ìœ¨ì 
         {
-            printf("ID¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù. µî·ÏÇÏ½Ã°Ú½À´Ï±î(y/n)? ");
+            printf("IDë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ë“±ë¡í•˜ì‹œê² ìŠµë‹ˆê¹Œ(y/n)? ");
             char choice;
             scanf(" %c", &choice);
 
@@ -91,31 +95,31 @@ void print_file()
                 }
                 else 
                 {
-                    printf("µî·ÏÇÒ ¼ö ÀÖ´Â ID°¡ ÃÖ´ëÄ¡¿¡ µµ´ŞÇß½À´Ï´Ù.\n");
+                    printf("ë“±ë¡í•  ìˆ˜ ìˆëŠ” IDê°€ ìµœëŒ€ì¹˜ì— ë„ë‹¬í–ˆìŠµë‹ˆë‹¤.\n");
                 }
             }
             else if (choice == 'n' || choice == 'N') 
             {
-                printf("µî·ÏÀ» Ãë¼ÒÇÕ´Ï´Ù.\n");
+                printf("ë“±ë¡ì„ ì·¨ì†Œí•©ë‹ˆë‹¤.\n");
             }
             else 
             {
-                printf("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù.\n");
+                printf("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤.\n");
             }
         }
     }
 
-    // ÇÁ·Î±×·¥ Á¾·á Àü¿¡ ÆÄÀÏ¿¡ ÀúÀå
-    fp = fopen("password.txt", "w");  // ¾²±â ¸ğµå·Î ¿­±â
+    // í”„ë¡œê·¸ë¨ ì¢…ë£Œ ì „ì— íŒŒì¼ì— ì €ì¥
+    fp = fopen("password.txt", "w");  // ì“°ê¸° ëª¨ë“œë¡œ ì—´ê¸°
     if (fp == NULL) 
     {
-        printf("ÆÄÀÏ ÀúÀå Áß ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù.\n");
+        printf("íŒŒì¼ ì €ì¥ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
     for (int i = 0; i < file_count; i++) 
     {
-        fprintf(fp, "%s %s\n", file[i].id, file[i].password); // ±âÁ¸ printf¹®°ú °°°í ¾Õ¿¡ ½ºÆ®¸² ¿¬°áÀ» À§ÇÑ fp Ãß°¡
+        fprintf(fp, "%s %s\n", file[i].id, file[i].password); // ê¸°ì¡´ printfë¬¸ê³¼ ê°™ê³  ì•ì— ìŠ¤íŠ¸ë¦¼ ì—°ê²°ì„ ìœ„í•œ fp ì¶”ê°€
     }
 
     fclose(fp);
@@ -127,3 +131,4 @@ int main()
     print_file();
     return 0;
 }
+
