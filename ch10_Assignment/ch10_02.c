@@ -4,6 +4,7 @@
 	 작성자: 주광연
 	 날  짜: 2025.09. 24
 */
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
@@ -71,3 +72,4 @@ int main()
 	return 0;
 
 }
+
