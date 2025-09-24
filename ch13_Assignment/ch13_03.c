@@ -1,3 +1,9 @@
+/*   파일명: ch13_03.c
+	 내  용: PA03. PRINT_ARRAY 함수 매크로를 int 배열외에 다른 데이터형의 배열을 출력할 수 있도록 수정하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
@@ -40,14 +46,14 @@ void print_arr() {
 
     const int size = 10;
 
-    printf("�Ǽ� �迭�� �ʱⰪ? ");
+    printf("실수 배열의 초기값? ");
     scanf(" %lf", &num);
 
     FILL_ARRAY(x, size, num);
     PRINT_ARRAY_DOUBLE(x, size);
 
 	printf("\n");
-    printf("���� �迭�� �ʱⰪ? ");
+    printf("문자 배열의 초기값? ");
 	scanf(" %c", &ch);
 
     FILL_ARRAY(y, size, num);
@@ -59,3 +65,4 @@ int main() {
     print_arr();
     return 0;
 }
+
