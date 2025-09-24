@@ -1,4 +1,8 @@
-// 25. 08. 05 (malloc, memcpy)
+/*   파일명: ch11_12.c
+	 내  용: PA12. 2개의 정수형 배열을 매개변수로 전달받아 하나의 배열로 합친 다음 정렬 후 리턴하는 merge_array 함수로 작성하시오.(난이도 3)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -11,7 +15,7 @@ int* merge_arr(int arr1[], int size1, int arr2[], int size2)
 
     int* merged = (int*)malloc(total_size * sizeof(int));
     if (merged == NULL) {
-        printf("�޸� �Ҵ� ����\n");
+        printf("¸Þ¸ð¸® ÇÒ´ç ½ÇÆÐ\n");
         exit(1);
     }
 
@@ -56,4 +60,5 @@ int main()
 {
     print_arr();
     return 0;
+
 }
