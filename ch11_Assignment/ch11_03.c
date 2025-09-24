@@ -1,4 +1,8 @@
-// 25. 08. 01
+/*   파일명: ch11_03.c
+	 내  용: PA03. fibonacci 함수를 이용해서 0~19번 항을 출력하는 프로그램을 작성하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -30,4 +34,5 @@ int main()
 {
 	print_digit();
 	return 0;
+
 }
