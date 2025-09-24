@@ -1,4 +1,8 @@
-// 25. 08. 03
+/*   파일명: ch11_09.c
+	 내  용: PA09. 영화 제목을 저장하는 문자열 배열이 있을 때, 문자열 배열을 qsort 함수를 이용해서 오름차순으로 정렬하는 프로그램을 작성하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -22,7 +26,7 @@ void print_list()
 		"Insidious"
 	};
 
-	printf("<<���� ��>>\n");
+	printf("<<Á¤·Ä Àü>>\n");
 	for (int i = 0; i < 5; i++)
 	{
 		printf("%s\n", list[i]);
@@ -30,7 +34,7 @@ void print_list()
 
 	qsort(list, 5, sizeof(list[0]), compare_by_name);
 
-	printf("<<���� ��>>\n");
+	printf("<<Á¤·Ä ÈÄ>>\n");
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -42,4 +46,5 @@ int main()
 {
 	print_list();
 	return 0;
+
 }
