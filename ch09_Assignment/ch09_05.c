@@ -1,4 +1,8 @@
-// 25. 07. 21
+/*   파일명: ch09_05.c
+	 내  용: PA05. strcmp_ic 함수를 이용해서 입력받은 두 문자열을 비교하는 프로그램을 작성하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -38,10 +42,10 @@ void print_str()
 	char org_str1[1000] = { NULL };
 	char org_str2[1000] = { NULL };
 
-    printf("ù ��° ���ڿ�? ");
+    printf("첫 번째 문자열? ");
     gets_s(str1, sizeof(str1));
 
-	printf("�� ��° ���ڿ�? ");
+	printf("두 번째 문자열? ");
 	gets_s(str2, sizeof(str2));
 
     strcpy(org_str1, str1);
@@ -53,11 +57,11 @@ void print_str()
 
     if (compare_str(str1, str2))
     {
-        printf("%s�� %s�� �����ϴ�.\n", org_str1, org_str2);
+        printf("%s와 %s가 같습니다.\n", org_str1, org_str2);
     }
     else
     {
-        printf("�� ���ڿ��� �ٸ��ϴ�.\n");
+        printf("두 문자열은 다릅니다.\n");
     }
 
 }
@@ -66,4 +70,5 @@ int main()
 {
     print_str();
     return 0;
+
 }
