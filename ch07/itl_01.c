@@ -1,5 +1,8 @@
-// 25.09. 10 in lab
-
+/*   파일명: itl_01.c
+	 내  용: in the lab, 배열 출력
+	 작성자: 주광연
+	 날  짜: 2025.09. 10
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 5
@@ -24,10 +27,10 @@ void sort_arr()
 {
 	int arr1[SIZE] = { 1, 5, 7, 3, 10 };
 
-	printf("���� ��\n");
+	printf("Á¤·Ä Àü\n");
 	print_arr(arr1, SIZE);
 
-	printf("���� ��\n");
+	printf("Á¤·Ä ÈÄ\n");
 	qsort(arr1, SIZE, sizeof(arr1[0]), compare_ints);
 	print_arr(arr1, SIZE);
 
@@ -38,4 +41,5 @@ int main()
 	sort_arr();
 	
 	return 0;
+
 }
