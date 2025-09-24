@@ -1,4 +1,9 @@
-// 25. 08. 08
+/*   파일명: ch12_04.c
+	 내  용: PA04. 아이디와 패스워드가 저장된 텍스트 파일을 크기가 10인 LOGIN 구조체 배열로 읽어온 다음, 
+     입력 받은 아이디와 패스워드가 일치하면 "로그인 성공" 아니면 "로그인 실패"라고 출력하는 프로그램을 작성하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -20,11 +25,11 @@ void print_file()
     fp = fopen("password.txt", "r");
     if (fp == NULL)
     {
-        printf("������ �� �� �����ϴ�.\n");
+        printf("파일을 열 수 없습니다.\n");
         exit(1);
     }
 
-    while (file_count < 10 && fscanf(fp, "%s %s", file[file_count].id, file[file_count].password) == 2) // �ٽ��ڵ�
+    while (file_count < 10 && fscanf(fp, "%s %s", file[file_count].id, file[file_count].password) == 2) // 핵심코드
     {
         file_count++;
     }
@@ -52,11 +57,11 @@ void print_file()
 
                 if (strcmp(input_pw, file[i].password) == 0)
                 {
-                    printf("�α��� ����!\n");
+                    printf("로그인 성공!\n");
                 }
                 else
                 {
-                    printf("��й�ȣ�� Ʋ�Ƚ��ϴ�.\n");
+                    printf("비밀번호가 틀렸습니다.\n");
                 }
                 break;
             }
@@ -64,7 +69,7 @@ void print_file()
 
         if (!found)
         {
-            printf("ID�� ã�� �� �����ϴ�.\n");
+            printf("ID를 찾을 수 없습니다.\n");
         }
     }
 
@@ -76,3 +81,4 @@ int main()
     print_file();
     return 0;
 }
+
