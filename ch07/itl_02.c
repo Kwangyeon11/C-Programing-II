@@ -1,4 +1,8 @@
-// 25.09. 17 in lab
+/*   íŒŒì¼ëª…: itl_02.c
+	 ë‚´  ìš©: in the lab, ë°°ì—´ ì¶œë ¥, ë³µì‚¬, ìŠ¤ì™‘, í•¨ìˆ˜í¬ì¸í„° ë“±
+	 ì‘ì„±ì: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.09. 17
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,22 +38,22 @@ int swap_double_arr() {
 	double a = 3.14;
 	double b = 5.12;
 
-	printf("½º¿ÒÀü : %.2f %.2f\n", a, b);
+	printf("ìŠ¤ì™‘ì „ : %.2f %.2f\n", a, b);
 
 	double* presult = (double*)swap_double(&a, &b);
 	if (presult == NULL) {
-		printf("Àß¸øµÇ¾ú¾î\n");
+		printf("ì˜ëª»ë˜ì—ˆì–´\n");
 	}
 	else {
-		printf("½º¿ÒÈÄ : %.2f %.2f\n", a, b);
+		printf("ìŠ¤ì™‘í›„ : %.2f %.2f\n", a, b);
 	}
 
 	presult = (double*)swap_double(NULL, &b);
 	if (presult == NULL) {
-		printf("Àß¸øµÇ¾ú¾î\n");
+		printf("ì˜ëª»ë˜ì—ˆì–´\n");
 	}
 	else {
-		printf("½º¿ÒÈÄ : %.2f %.2f\n", a, b);
+		printf("ìŠ¤ì™‘í›„ : %.2f %.2f\n", a, b);
 	}
 
 	return 0;
@@ -70,11 +74,11 @@ void print_arr(double arr[], int size) {
 	}
 	printf("\n");
 }
-/* ±â´É: 1Â÷¿ø ½Ç¼ö ¹è¿­À» ÀÔ·Â ¹Ş¾Æ ÄÜ¼Ö¿¡ Ãâ·Â
-   ÇÔ¼ö¸í: print_arr
-   ÀÔ·Â: double *arr
-   Ãâ·Â: ÅÍ¹Ì³Î¿¡ ¹è¿­ÀÇ ³»¿ëÀ» ÀÌ»Ú°Ô Ãâ·Â
-   ¹İÈ¯: x
+/* ê¸°ëŠ¥: 1ì°¨ì› ì‹¤ìˆ˜ ë°°ì—´ì„ ì…ë ¥ ë°›ì•„ ì½˜ì†”ì— ì¶œë ¥
+   í•¨ìˆ˜ëª…: print_arr
+   ì…ë ¥: double *arr
+   ì¶œë ¥: í„°ë¯¸ë„ì— ë°°ì—´ì˜ ë‚´ìš©ì„ ì´ì˜ê²Œ ì¶œë ¥
+   ë°˜í™˜: x
 */
 
 void print_arr2(double* arr, int size) {
@@ -123,10 +127,10 @@ void test_arr() {
 
 	double da[SIZE] = { 1.0, 2.0, 3.0, 4.0, 5.0 };
 
-	printf("Ã¹ ¹øÂ° ¹æ¹ı: ");
+	printf("ì²« ë²ˆì§¸ ë°©ë²•: ");
 	print_arr(da, SIZE);
 
-	printf("µÎ ¹øÂ° ¹æ¹ı: ");
+	printf("ë‘ ë²ˆì§¸ ë°©ë²•: ");
 	print_arr2(da, SIZE);
 
 }
@@ -139,4 +143,5 @@ int main() {
 	test_function_pointer();
 
 	return 0;
+
 }
