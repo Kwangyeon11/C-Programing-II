@@ -1,7 +1,7 @@
-/*   ÆÄÀÏ¸í: ch10_itl_01.c
-	 ³»  ¿ë: in the lab, ºñÆ®ÇÊµåÀÇ Á¤ÀÇ ¹× »ç¿ë
-	 ÀÛ¼ºÀÚ: ÁÖ±¤¿¬
-	 ³¯  Â¥: 2025.10. 01
+/*   íŒŒì¼ëª…: ch10_itl_01.c
+	 ë‚´  ìš©: in the lab. ë¹„íŠ¸í•„ë“œì˜ ì •ì˜ ë° ì‚¬ìš©
+	 ì‘ì„±ì: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.10. 01
 */
 
 #include <stdio.h>
@@ -19,8 +19,9 @@ int main() {
 	dday.month = 11;
 	dday.day = 30;
 
-	printf("DATEÀÇ Å©±â \ %d\n", sizeof(DATE));
+	printf("DATEì˜ í¬ê¸° \ %d\n", sizeof(DATE));
 	printf("%d/%d/%d\n", dday.year + 2000, dday.month, dday.day);
 
 	return 0;
+
 }
