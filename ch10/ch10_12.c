@@ -1,7 +1,7 @@
-/*   ÆÄÀÏ¸í: ch10_12.c
-	 ³»  ¿ë: PA12. low word, high word °ªÀ» ¸Å°³º¯¼ö·Î Àü´Þ¹Þ¾Æ mydata °ø¿ëÃ¼·Î ¸¸µé¾î ¸®ÅÏÇÏ´Â make_dword ÇÔ¼ö¸¦ Á¤ÀÇÇÏ½Ã¿À.(³­ÀÌµµ 2)
-	 ÀÛ¼ºÀÚ: ÁÖ±¤¿¬
-	 ³¯  Â¥: 2025.10.01
+/*   íŒŒì¼ëª…: ch10_12.c
+	 ë‚´  ìš©: PA12. low word, high word ê°’ì„ ë§¤ê°œë³€ìˆ˜ë¡œ ì „ë‹¬ë°›ì•„ mydata ê³µìš©ì²´ë¡œ ë§Œë“¤ì–´ ë¦¬í„´í•˜ëŠ” make_dword í•¨ìˆ˜ë¥¼ ì •ì˜í•˜ì‹œì˜¤.
+	 ìž‘ì„±ìž: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.10.01
 */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -35,3 +35,4 @@ int main() {
 
     return 0;
 }
+
