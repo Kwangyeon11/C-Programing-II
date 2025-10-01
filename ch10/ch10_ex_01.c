@@ -1,7 +1,7 @@
-/*   ÆÄÀÏ¸í: ch10_ex_01.c
-	 ³»  ¿ë: exercise, ±¸Á¶Ã¼ ³»ºÎ ¿­°ÅÃ¼ È°¿ë
-	 ÀÛ¼ºÀÚ: ÁÖ±¤¿¬
-	 ³¯  Â¥: 2025.10. 01
+/*   íŒŒì¼ëª…: ch10_ex_01.c
+	 ë‚´  ìš©: exercise. êµ¬ì¡°ì²´ ë‚´ë¶€ ì—´ê±°ì²´ í™œìš©
+	 ì‘ì„±ì: ì£¼ê´‘ì—°
+	 ë‚   ì§œ: 2025.10. 01
 */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -21,8 +21,9 @@ int main() {
 	strcpy(fin.filename, "output.txt");
 	fin.mode = write | text;
 
-	printf("ÆÄÀÏ¸í: %s\n", fin.filename);
-	printf("¿­±â¸ğµå: %02X\n", fin.mode);
+	printf("íŒŒì¼ëª…: %s\n", fin.filename);
+	printf("ì—´ê¸°ëª¨ë“œ: %02X\n", fin.mode);
 
 	return 0;
+
 }
