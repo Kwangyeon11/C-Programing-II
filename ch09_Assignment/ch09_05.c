@@ -23,7 +23,7 @@ void convert_str(char* str)
 int compare_str(char* str1, char* str2)
 {
     int i;
-    for (i = 0; i < str1[i] != '\0'; i++)
+    for (i = 0; str1[i] != '\0'; i++)
     {
         if (str1[i] != str2[i])
         {
@@ -72,3 +72,4 @@ int main()
     return 0;
 
 }
+
