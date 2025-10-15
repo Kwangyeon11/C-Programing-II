@@ -40,8 +40,8 @@ void print_record() {
 		token = strtok(NULL, dis);
 		 
 		if (token != NULL) strcpy(record.major, token);
-		
 		token = strtok(NULL, dis); 
+		
 		if (token != NULL) record.year = atoi(token); 
 		
 		printf("%s | %s | %s | %d\n", record.name, record.id, record.major, record.year); } 
@@ -51,4 +51,5 @@ int main() {
 	print_record(); 
 	return 0; 
 }
+
 
