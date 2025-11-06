@@ -1,8 +1,8 @@
-/*   ÆÄÀÏ¸í: ch12_14.c
-     ³»  ¿ë: PA14.13¹ø ÇÁ·Î±×·¥À» ½ÇÇàÇØ¼­ Å©±â°¡ ´Ù¸¥ 2Áø ÆÄÀÏÀ» 2°³ »ı¼ºÇÑ ´ÙÀ½ 
-     µÎ ÆÄÀÏÀ» ÀĞ¾î¼­ ÇÏ³ªÀÇ int ¹è¿­À» »ı¼ºÇÑ ´ÙÀ½ Á¤·Ä ÈÄ¿¡ ´Ù½Ã 2Áø ÆÄÀÏ·Î ÀúÀåÇÏ´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏ½Ã¿À.
-     ÀÛ¼ºÀÚ: ÁÖ±¤¿¬
-     ³¯  Â¥: 2025.11. 07
+/*   íŒŒì¼ëª…: ch12_14.c
+     ë‚´  ìš©: PA14.13ë²ˆ í”„ë¡œê·¸ë¨ì„ ì‹¤í–‰í•´ì„œ í¬ê¸°ê°€ ë‹¤ë¥¸ 2ì§„ íŒŒì¼ì„ 2ê°œ ìƒì„±í•œ ë‹¤ìŒ 
+     ë‘ íŒŒì¼ì„ ì½ì–´ì„œ í•˜ë‚˜ì˜ int ë°°ì—´ì„ ìƒì„±í•œ ë‹¤ìŒ ì •ë ¬ í›„ì— ë‹¤ì‹œ 2ì§„ íŒŒì¼ë¡œ ì €ì¥í•˜ëŠ” í”„ë¡œê·¸ë¨ì„ ì‘ì„±í•˜ì‹œì˜¤.
+     ì‘ì„±ì: ì£¼ê´‘ì—°
+     ë‚   ì§œ: 2025.11. 07
 */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -19,38 +19,38 @@ int compare_int(const void* a, const void* b) {
     else return 0;
 }
 
-// 2Áø ÆÄÀÏ ÀúÀå ÇÔ¼ö
+// 2ì§„ íŒŒì¼ ì €ì¥ í•¨ìˆ˜
 int save_bin_file(int n, const int* arr, const char* filename) {
     FILE* bin_fp = fopen(filename, "wb");
     if (!bin_fp) {
-        printf("ÆÄÀÏ %sÀ»(¸¦) ¿­ ¼ö ¾ø½À´Ï´Ù.\n", filename);
+        printf("íŒŒì¼ %sì„(ë¥¼) ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n", filename);
         return 0;
     }
 
-    fwrite(&n, sizeof(int), 1, bin_fp);  // µ¥ÀÌÅÍ °³¼ö ÀúÀå
-    fwrite(arr, sizeof(int), n, bin_fp); // Á¤¼ö µ¥ÀÌÅÍ ÀúÀå
+    fwrite(&n, sizeof(int), 1, bin_fp);  // ë°ì´í„° ê°œìˆ˜ ì €ì¥
+    fwrite(arr, sizeof(int), n, bin_fp); // ì •ìˆ˜ ë°ì´í„° ì €ì¥
     fclose(bin_fp);
     return 1;
 }
 
-// 2Áø ÆÄÀÏ ÀĞ±â ÇÔ¼ö
+// 2ì§„ íŒŒì¼ ì½ê¸° í•¨ìˆ˜
 int* read_bin_file(const char* filename, int* out_size) {
     FILE* bin_fp = fopen(filename, "rb");
     if (!bin_fp) {
-        printf("ÆÄÀÏ %sÀ»(¸¦) ¿­ ¼ö ¾ø½À´Ï´Ù.\n", filename);
+        printf("íŒŒì¼ %sì„(ë¥¼) ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n", filename);
         return NULL;
     }
 
     int n;
     if (fread(&n, sizeof(int), 1, bin_fp) != 1) {
-        printf("ÆÄÀÏ %s ÀĞ±â ¿À·ù\n", filename);
+        printf("íŒŒì¼ %s ì½ê¸° ì˜¤ë¥˜\n", filename);
         fclose(bin_fp);
         return NULL;
     }
 
     int* arr = (int*)malloc(sizeof(int) * n);
     if (!arr) {
-        printf("¸Ş¸ğ¸® ÇÒ´ç ½ÇÆĞ\n");
+        printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨\n");
         fclose(bin_fp);
         return NULL;
     }
@@ -77,21 +77,21 @@ void print_result() {
     char file1[64], file2[64], out_file[64];
     int n1, n2;
 
-    printf("Ã¹ ¹øÂ° ÆÄÀÏ¸í? ");
+    printf("ì²« ë²ˆì§¸ íŒŒì¼ëª…? ");
     scanf("%s", file1);
     int* arr1 = make_random_array(&n1);
     if (save_bin_file(n1, arr1, file1)) {
-        printf("Á¤¼ö %d°³¸¦ ÀĞ¾ú½À´Ï´Ù.\n", n1);
+        printf("ì •ìˆ˜ %dê°œë¥¼ ì½ì—ˆìŠµë‹ˆë‹¤.\n", n1);
     }
 
-    printf("µÎ ¹øÂ° ÆÄÀÏ¸í? ");
+    printf("ë‘ ë²ˆì§¸ íŒŒì¼ëª…? ");
     scanf("%s", file2);
     int* arr2 = make_random_array(&n2);
     if (save_bin_file(n2, arr2, file2)) {
-        printf("Á¤¼ö %d°³¸¦ ÀĞ¾ú½À´Ï´Ù.\n", n2);
+        printf("ì •ìˆ˜ %dê°œë¥¼ ì½ì—ˆìŠµë‹ˆë‹¤.\n", n2);
     }
 
-    printf("ÀúÀåÇÒ ÆÄÀÏ¸í? ");
+    printf("ì €ì¥í•  íŒŒì¼ëª…? ");
     scanf("%s", out_file);
 
 
@@ -114,7 +114,7 @@ void print_result() {
     qsort(merged, total, sizeof(int), compare_int);
 
     if (save_bin_file(total, merged, out_file))
-        printf("Á¤¼ö %d°³¸¦ ÀúÀåÇß½À´Ï´Ù.\n", total);
+        printf("ì •ìˆ˜ %dê°œë¥¼ ì €ì¥í–ˆìŠµë‹ˆë‹¤.\n", total);
 
     free(arr1);
     free(arr2);
@@ -126,57 +126,4 @@ void print_result() {
 int main() {
     print_result();
     return 0;
-}
-
-void test_pa14() {
-    srand((unsigned)time(NULL));
-
-    const char* file1 = "file1.dat";
-    const char* file2 = "file2.dat";
-    const char* merged = "merged_test.dat";
-
-    int n1, n2;
-    int* arr1 = make_random_array(&n1);
-    int* arr2 = make_random_array(&n2);
-
-    printf("[Å×½ºÆ® ½ÃÀÛ]\n");
-    printf("Ã¹ ¹øÂ° ÆÄÀÏ: %s (%d°³)\n", file1, n1);
-    save_bin_file(n1, arr1, file1);
-
-    printf("µÎ ¹øÂ° ÆÄÀÏ: %s (%d°³)\n", file2, n2);
-    save_bin_file(n2, arr2, file2);
-
-    // ÆÄÀÏ ÀĞ±â
-    int size1, size2;
-    int* data1 = read_bin_file(file1, &size1);
-    int* data2 = read_bin_file(file2, &size2);
-
-    // º´ÇÕ
-    int total = size1 + size2;
-    int* merged_data = (int*)malloc(sizeof(int) * total);
-    memcpy(merged_data, data1, sizeof(int) * size1);
-    memcpy(merged_data + size1, data2, sizeof(int) * size2);
-
-    // Á¤·Ä
-    qsort(merged_data, total, sizeof(int), compare_int);
-
-    // °á°ú ÀúÀå
-    save_bin_file(total, merged_data, merged);
-    printf("º´ÇÕ ¿Ï·á ¡æ %s (ÃÑ %d°³)\n", merged, total);
-
-    // °á°ú ÆÄÀÏ ÀĞ¾î¼­ ÀÏºÎ Ãâ·Â
-    int result_size;
-    int* result = read_bin_file(merged, &result_size);
-    printf("[°á°ú ¹Ì¸®º¸±â]\n");
-    for (int i = 0; i < (result_size < 10 ? result_size : 10); i++) {
-        printf("%d ", result[i]);
-    }
-    printf("\n[Å×½ºÆ® ¿Ï·á]\n");
-
-    free(arr1);
-    free(arr2);
-    free(data1);
-    free(data2);
-    free(merged_data);
-    free(result);
 }
