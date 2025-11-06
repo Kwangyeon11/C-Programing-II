@@ -14,7 +14,7 @@ void contact_txt()
 {
     FILE* fp = fopen("mycontact.txt", "r");
     if (!fp) {
-        printf("ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
@@ -26,34 +26,34 @@ void contact_txt()
     }
 
     if (count == 0) {
-        printf("¿¬¶ôÃ³°¡ ¾ø½À´Ï´Ù.\n");
+        printf("ì—°ë½ì²˜ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
         fclose(fp);
         return;
     }
 
     CONTACT* mycon = malloc(sizeof(CONTACT) * count);
     if (!mycon) {
-        printf("¸Ş¸ğ¸® ÇÒ´ç ½ÇÆĞ\n");
+        printf("ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨\n");
         fclose(fp);
         exit(1);
     }
 
-    // ÆÄÀÏ À§Ä¡ µÇµ¹¸®°í µ¥ÀÌÅÍ ÀĞ±â
+    // íŒŒì¼ ìœ„ì¹˜ ë˜ëŒë¦¬ê³  ë°ì´í„° ì½ê¸°
     rewind(fp);
     for (int i = 0; i < count; i++) {
         fscanf(fp, "%19s %19s", mycon[i].name, mycon[i].num);
     }
     fclose(fp);
 
-    printf("%d°³ÀÇ ¿¬¶ôÃ³¸¦ ·ÎµùÇß½À´Ï´Ù.\n", count);
+    printf("%dê°œì˜ ì—°ë½ì²˜ë¥¼ ë¡œë”©í–ˆìŠµë‹ˆë‹¤.\n", count);
 
-    // ÀÔ·Â ¹öÆÛ °³Çà Á¦°Å
+    // ì…ë ¥ ë²„í¼ ê°œí–‰ ì œê±°
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 
     while (1) 
     {
-        printf("ÀÌ¸§(. ÀÔ·Â ½Ã Á¾·á)? ");
+        printf("ì´ë¦„(. ì…ë ¥ ì‹œ ì¢…ë£Œ)? ");
         fgets(temp.name, sizeof(temp.name), stdin);
         temp.name[strcspn(temp.name, "\n")] = '\0';
 
@@ -63,13 +63,13 @@ void contact_txt()
         int found = 0;
         for (int i = 0; i < count; i++) {
             if (strcmp(temp.name, mycon[i].name) == 0) {
-                printf("%sÀÇ ÀüÈ­¹øÈ£ %s·Î ÀüÈ­¸¦ °Ì´Ï´Ù....\n", mycon[i].name, mycon[i].num);
+                printf("%sì˜ ì „í™”ë²ˆí˜¸ %së¡œ ì „í™”ë¥¼ ê²ë‹ˆë‹¤....\n", mycon[i].name, mycon[i].num);
                 found = 1;
                 break;
             }
         }
         if (!found) {
-            printf("¿¬¶ôÃ³¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.\n");
+            printf("ì—°ë½ì²˜ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         }
     }
 
