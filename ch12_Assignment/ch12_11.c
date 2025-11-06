@@ -1,4 +1,9 @@
-// 25. 08. 13 ( rewind(fp), (c = getchar()) != '\n' && c != EOF) )
+/*   파일명: ch12_11.c
+	 내  용: PA11. 텍스트 파일에 정해진 형식으로 연락처를 저장하고 이 파일을 읽어서 
+     CONTACT 구조체 배열을 생성하도록 프로그램을 작성하시오.(난이도 2)
+	 작성자: 주광연
+	 날  짜: 2025.09. 24
+*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -81,3 +86,4 @@ int main()
     contact_txt();
     return 0;
 }
+
